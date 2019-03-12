@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Menu from './components/MenuComponent';
+
 import {Navbar} from "reactstrap";
 import {NavbarBrand} from "reactstrap";
 
@@ -15,6 +17,7 @@ class App extends Component {
                         </NavbarBrand>
                     </div>
                 </Navbar>
+                <Menu />
             </div>
         );
     }

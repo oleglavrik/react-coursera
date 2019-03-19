@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Card, CardImg, CardText, CardBody, CardTitle, CardImgOverlay} from 'reactstrap';
+import {Card, CardImg, CardText, CardBody, CardTitle} from 'reactstrap';
 
 class DishDetail extends Component {
 
@@ -32,7 +32,8 @@ class DishDetail extends Component {
                 <li key={comment.id}>
                     <div className="comment-text">{comment.comment}</div>
                     <div className="comment-meta">
-                        -- { comment.author }, { date.toLocaleString("en-US", {year: 'numeric', month: 'short', day: 'numeric'}) }
+                        -- { comment.author },
+                        {" " + new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
                     </div>
                 </li>
             );
@@ -56,15 +57,17 @@ class DishDetail extends Component {
 
     render() {
         return (
-            <div className="row">
-                {/* Dish Detail Card */}
-                <div className="col-12 col-md-5 m-1">
-                    {this.props.dish && this.renderDish(this.props.dish) }
-                </div>
+            <div className="container">
+                <div className="row">
+                    {/* Dish Detail Card */}
+                    <div className="col-12 col-md-5 m-1">
+                        {this.props.dish && this.renderDish(this.props.dish) }
+                    </div>
 
-                {/* Dish Comments */}
-                <div className="col-12 col-md-5 m-1">
-                    {this.props.dish && this.renderComments(this.props.dish.comments)}
+                    {/* Dish Comments */}
+                    <div className="col-12 col-md-5 m-1">
+                        {this.props.dish && this.renderComments(this.props.dish.comments)}
+                    </div>
                 </div>
             </div>
         );

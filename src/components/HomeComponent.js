@@ -1,18 +1,18 @@
 import React from 'react';
-import RenderCard from './extra/RenderCard'
+import RenderCardComponent from './extra/RenderCardComponent'
 
 function Home(props) {
     return(
         <div className="container">
             <div className="row align-items-start">
                 <div className="col-12 col-md m-1">
-                    <RenderCard item={props.dish}/>
+                    <RenderCardComponent item={props.dish}/>
                 </div>
                 <div className="col-12 col-md m-1">
-                    <RenderCard item={props.promotion}/>
+                    <RenderCardComponent item={props.promotion}/>
                 </div>
                 <div className="col-12 col-md m-1">
-                    <RenderCard item={props.leader}/>
+                    <RenderCardComponent item={props.leader}/>
                 </div>
             </div>
         </div>

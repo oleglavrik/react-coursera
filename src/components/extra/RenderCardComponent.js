@@ -1,7 +1,7 @@
 import React from 'react';
 import {Card, CardBody, CardImg, CardSubtitle, CardText, CardTitle} from "reactstrap";
 
-function RenderCard({item}) {
+function RenderCardComponent({item}) {
     return(
         <Card>
             <CardImg src={item.image} alt={item.name} />
@@ -14,4 +14,4 @@ function RenderCard({item}) {
     )
 }
 
-export default RenderCard;
+export default RenderCardComponent;

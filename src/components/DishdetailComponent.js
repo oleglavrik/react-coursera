@@ -11,7 +11,7 @@ import {
 import RenderDish from './extra/RenderDishComponent';
 import {Link} from "react-router-dom";
 import {Control, LocalForm, Errors} from "react-redux-form";
-import { Loading } from './LoadingComponent';
+import {Loading} from './LoadingComponent';
 
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => val && (val.length >= len);
@@ -36,7 +36,7 @@ class CommentForm extends Component {
 
     handleSubmit(values) {
         this.toggleModal();
-        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+        this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
     }
 
     render() {
@@ -109,7 +109,7 @@ class CommentForm extends Component {
     }
 }
 
-function RenderComments({comments, addComment, dishId}) {
+function RenderComments({comments, postComment, dishId}) {
     if(comments != null) {
         return (
             <React.Fragment>
@@ -127,7 +127,7 @@ function RenderComments({comments, addComment, dishId}) {
                         );
                     })}
                 </ul>
-                <CommentForm dishId={dishId} addComment={addComment} />
+                <CommentForm dishId={dishId} postComment={postComment} />
             </React.Fragment>
         );
     } else {
@@ -174,7 +174,7 @@ const DishDetail = (props) => {
                     </div>
                     <div className='col-12 col-md-5 m-1'>
                         <RenderComments comments={props.comments}
-                                        addComment={props.addComment}
+                                        postComment={props.postComment}
                                         dishId={props.dish.id}
                         />
                     </div>

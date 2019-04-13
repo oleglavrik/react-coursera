@@ -12,6 +12,7 @@ import RenderDish from './extra/RenderDishComponent';
 import {Link} from "react-router-dom";
 import {Control, LocalForm, Errors} from "react-redux-form";
 import {Loading} from './LoadingComponent';
+import { Stagger, Fade, } from 'react-animation-components';
 
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => val && (val.length >= len);
@@ -115,17 +116,21 @@ function RenderComments({comments, postComment, dishId}) {
             <React.Fragment>
                 <h4>Comments</h4>
                 <ul className="comments-list">
+                    <Stagger in>
                     {comments.map((comment) => {
                         return (
-                            <li key={comment.id} className="list-unstyled">
-                                <p>{comment.comment}</p>
-                                <p>
-                                    -- { comment.author },
-                                    {" " + new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
-                                </p>
-                            </li>
+                            <Fade in>
+                                <li key={comment.id} className="list-unstyled">
+                                    <p>{comment.comment}</p>
+                                    <p>
+                                        -- { comment.author },
+                                        {" " + new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
+                                    </p>
+                                </li>
+                            </Fade>
                         );
                     })}
+                    </Stagger>
                 </ul>
                 <CommentForm dishId={dishId} postComment={postComment} />
             </React.Fragment>

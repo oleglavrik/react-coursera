@@ -1,7 +1,7 @@
 import React from 'react';
 import {Card, CardBody, CardImg, CardText, CardTitle} from "reactstrap";
 import { baseUrl } from './../../shared/baseUrl';
-import { FadeTransform, Fade, Stagger } from 'react-animation-components';
+import { FadeTransform } from 'react-animation-components';
 
 function RenderDish({dish}) {
     if(dish != null) {

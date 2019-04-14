@@ -12,7 +12,7 @@ import RenderDish from './extra/RenderDishComponent';
 import {Link} from "react-router-dom";
 import {Control, LocalForm, Errors} from "react-redux-form";
 import {Loading} from './LoadingComponent';
-import { Stagger, Fade, } from 'react-animation-components';
+import { Stagger, Fade } from 'react-animation-components';
 
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => val && (val.length >= len);

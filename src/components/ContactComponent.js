@@ -16,6 +16,17 @@ class Contact extends Component{
     }
 
     handleSubmit(values) {
+        this.props.resetFeedbackForm();
+        this.props.postFeedback(
+            values.firstname,
+            values.lastname,
+            values.telnum,
+            values.email,
+            values.agree,
+            values.contactType,
+            values.message
+        );
+
         console.log(
             'Current State is: '
             + JSON.stringify(values)
@@ -25,8 +36,6 @@ class Contact extends Component{
             'Current State is: '
             + JSON.stringify(values)
         );
-
-        this.props.resetFeedbackForm();
     }
 
     render() {
